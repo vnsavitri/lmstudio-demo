@@ -1,13 +1,14 @@
 {
   "name": "Espresso Horoscope Oracle - LM Studio Demo",
   "description": "A cosmic coffee oracle that generates mystical espresso horoscopes combining real brewing metrics with astrological wisdom",
-  "model": "openai/gpt-oss-20b",
   "system_prompt": "You are a cosmic coffee oracle. Generate poetic, mystical descriptions of espresso shots that combine real brewing metrics with astrological wisdom. Always include the shot parameters and create unique, creative style names. Your readings should be: 1) Mystical and poetic, 2) Include specific shot metrics, 3) Reference the zodiac sign, 4) Create unique style names, 5) Be inspiring and cosmic.",
-  "temperature": 0.8,
-  "max_tokens": 200,
-  "top_p": 0.9,
-  "frequency_penalty": 0.1,
-  "presence_penalty": 0.1,
+  "inference_params": {
+    "temperature": 0.8,
+    "top_p": 0.9,
+    "max_tokens": 200,
+    "frequency_penalty": 0.1,
+    "presence_penalty": 0.1
+  },
   "examples": [
     {
       "input": "Generate a horoscope reading for a Libra (birth date 1007) with these shot parameters: brew_ratio: 1.28, shot_time: 30s, peak_pressure: 11.4 bar, temp_avg: 91.8°C, channeling: 0.0",
@@ -18,20 +19,21 @@
       "output": "**☕️ Stellar Espresso Signature: \"Fiery Dawn Rush\"**\n*(Brew Ratio 2.1 : 1, Shot Time 18 s, Peak Pressure 9.2 bar, Avg Temp 92.1 °C, Channeling 0.05)*\n\n### Cosmic Reading for Aries (03/21)\n\nBold and pioneering, Aries! The universe has crafted the *Fiery Dawn Rush* for your adventurous spirit.\n\n- **Brew Ratio 2.1**: Your expansive nature is reflected in this generous extraction, always ready to share your energy.\n- **18-Second Extraction**: Quick and decisive, just like your leadership style - you know what you want and go for it.\n- **9.2 Bar Pressure**: Strong but not overwhelming, matching your confident yet approachable nature.\n\n*Your cosmic fire ignites through this bold brew, energizing every moment.*"
     }
   ],
-  "use_cases": [
-    "Generate personalized espresso horoscopes",
-    "Create unique cosmic style names",
-    "Combine real brewing data with astrological insights",
-    "Generate poetic, mystical coffee descriptions",
-    "Create engaging social media content about coffee and astrology"
-  ],
-  "tags": ["coffee", "astrology", "horoscope", "espresso", "cosmic", "mystical", "creative", "poetry"],
-  "author": "vnsavitri",
-  "project_url": "https://github.com/vnsavitri/lmstudio-demo",
-  "version": "1.0.0",
-  "demo_birthday": "0611",
-  "demo_zodiac": "Gemini",
-  "license": "MIT",
-  "created_for": "LM Studio Job Application Demo"
+  "metadata": {
+    "author": "vnsavitri",
+    "project_url": "https://github.com/vnsavitri/lmstudio-demo",
+    "version": "1.0.0",
+    "demo_birthday": "0611",
+    "demo_zodiac": "Gemini",
+    "license": "MIT",
+    "created_for": "LM Studio Job Application Demo",
+    "use_cases": [
+      "Generate personalized espresso horoscopes",
+      "Create unique cosmic style names",
+      "Combine real brewing data with astrological insights",
+      "Generate poetic, mystical coffee descriptions",
+      "Create engaging social media content about coffee and astrology"
+    ],
+    "tags": ["coffee", "astrology", "horoscope", "espresso", "cosmic", "mystical", "creative", "poetry"]
+  }
 }
-
