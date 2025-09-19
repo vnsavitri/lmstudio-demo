@@ -11,6 +11,8 @@ A creative demonstration of LM Studio's local AI capabilities through mystical e
 
 This project shows how LM Studio with GPT-OSS 20B can power local AI applications. I built an Espresso Horoscope system that combines coffee brewing data with astrological insights, running entirely offline with AI-generated content.
 
+**Related Project**: This demo is based on the full [Espresso Horoscope MCP](https://github.com/vnsavitri/espresso-horoscope-mcp) project, which includes real and simulated Gaggiuino espresso machine integration, comprehensive MCP protocol support, and advanced features. This repository focuses specifically on the LM Studio integration aspects.
+
 ### Portfolio Highlights
 
 - **Local AI Processing**: Complete offline AI processing with LM Studio
@@ -29,7 +31,7 @@ This project shows how LM Studio with GPT-OSS 20B can power local AI application
 
 ## Live Demo
 
-**Demo Video**: [Watch the Espresso Horoscope AI in action](https://www.youtube.com/watch?v=hHNMkw1NXDE)
+**Demo Video**: [Watch the Espresso Horoscope MCP in action](https://www.youtube.com/watch?v=hHNMkw1NXDE)
 
 Try it yourself! The system generates horoscopes like this for my birthday (June 11 - Gemini):
 
@@ -287,6 +289,11 @@ This repository is designed to showcase LM Studio's capabilities. It demonstrate
 - Real-World Impact: Practical, fun application
 
 ---
+
+## Related Projects
+
+- **This Repository**: [lmstudio-demo](https://github.com/vnsavitri/lmstudio-demo) - LM Studio integration showcase
+- **Main Project**: [espresso-horoscope-mcp](https://github.com/vnsavitri/espresso-horoscope-mcp) - Full espresso horoscope system with Gaggiuino integration
 
 **Repository**: https://github.com/vnsavitri/lmstudio-demo  
 **Demo**: http://localhost:8000 (when running)  
