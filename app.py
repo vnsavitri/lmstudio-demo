@@ -244,6 +244,86 @@ async def test_lm_studio():
     except requests.exceptions.RequestException as e:
         return {"status": "error", "message": str(e)}
 
+@app.get("/batch_generate")
+async def batch_generate_horoscopes():
+    """Generate multiple horoscopes to showcase LM Studio's batch processing capabilities"""
+    birth_dates = ["0611", "1007", "0321", "0723", "1225"]  # Different zodiac signs
+    results = []
+    
+    for birth_date in birth_dates:
+        try:
+            zodiac_sign, zodiac_icon = get_zodiac_sign(birth_date)
+            shot_data = generate_sample_shot_data()
+            
+            prompt = f"""Generate a horoscope reading for a {zodiac_sign} (birth date {birth_date}) with these shot parameters:
+            - Brew Ratio: {shot_data['brew_ratio']}:1
+            - Shot Time: {shot_data['shot_time']} seconds
+            - Peak Pressure: {shot_data['peak_pressure']} bar
+            - Temperature: {shot_data['temp_avg']}°C
+            - Channeling: {shot_data['channeling']}
+            
+            Create a unique style name and cosmic reading that combines the shot metrics with {zodiac_sign} astrological traits."""
+            
+            ai_reading = call_lm_studio(prompt)
+            
+            results.append({
+                "birth_date": birth_date,
+                "zodiac_sign": zodiac_sign,
+                "zodiac_icon": zodiac_icon,
+                "reading": ai_reading,
+                "shot_metrics": shot_data
+            })
+        except Exception as e:
+            results.append({
+                "birth_date": birth_date,
+                "error": str(e)
+            })
+    
+    return {
+        "batch_results": results,
+        "total_generated": len([r for r in results if "error" not in r]),
+        "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    }
+
+@app.get("/creative_variations")
+async def creative_variations(birth_date: str, count: int = 3):
+    """Generate multiple creative variations for the same birth date to showcase LM Studio's creativity"""
+    if len(birth_date) != 4 or not birth_date.isdigit():
+        raise HTTPException(status_code=400, detail="Birth date must be in MMDD format")
+    
+    if count > 5:
+        count = 5  # Limit to prevent abuse
+    
+    zodiac_sign, zodiac_icon = get_zodiac_sign(birth_date)
+    shot_data = generate_sample_shot_data()
+    
+    variations = []
+    for i in range(count):
+        prompt = f"""Generate a UNIQUE and CREATIVE horoscope reading for a {zodiac_sign} (birth date {birth_date}) with these shot parameters:
+        - Brew Ratio: {shot_data['brew_ratio']}:1
+        - Shot Time: {shot_data['shot_time']} seconds
+        - Peak Pressure: {shot_data['peak_pressure']} bar
+        - Temperature: {shot_data['temp_avg']}°C
+        - Channeling: {shot_data['channeling']}
+        
+        Make this variation #{i+1} completely different from the others. Use a different writing style, different metaphors, and a unique creative approach. Create a unique style name and cosmic reading that combines the shot metrics with {zodiac_sign} astrological traits."""
+        
+        ai_reading = call_lm_studio(prompt)
+        variations.append({
+            "variation": i + 1,
+            "reading": ai_reading,
+            "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        })
+    
+    return {
+        "birth_date": birth_date,
+        "zodiac_sign": zodiac_sign,
+        "zodiac_icon": zodiac_icon,
+        "shot_metrics": shot_data,
+        "variations": variations,
+        "total_variations": len(variations)
+    }
+
 if __name__ == "__main__":
     import uvicorn
     print("🚀 Starting LM Studio Espresso Horoscope Demo...")
