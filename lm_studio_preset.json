@@ -27,7 +27,11 @@
   ],
   "tags": ["coffee", "astrology", "horoscope", "espresso", "cosmic", "mystical", "creative", "poetry"],
   "author": "vnsavitri",
-  "project_url": "https://github.com/vnsavitri/espresso-horoscope-mcp",
-  "version": "1.0.0"
+  "project_url": "https://github.com/vnsavitri/lmstudio-demo",
+  "version": "1.0.0",
+  "demo_birthday": "0611",
+  "demo_zodiac": "Gemini",
+  "license": "MIT",
+  "created_for": "LM Studio Job Application Demo"
 }
 
